@@ -3,8 +3,8 @@ const route = useRoute()
 
 const { data: page } = await useAsyncData(route.path, () => queryCollection('landing' as never).path(route.path).first())
 
-const title = (page.value as { seo?: { title?: string }, title?: string })?.seo?.title || (page.value as { title?: string })?.title
-const description = page.value?.seo?.description || page.value?.description
+const title = (page.value as unknown as { seo?: { title?: string }, title?: string })?.seo?.title || (page.value as unknown as { title?: string })?.title
+const description = (page.value as unknown as { seo?: { description?: string }, description?: string })?.seo?.description || (page.value as unknown as { description?: string })?.description
 
 useSeoMeta({
   title,
@@ -42,8 +42,8 @@ const pageFeatures = computed(() => {
 <template>
   <UPage v-if="page">
     <UPageHero
-      :title="page.title"
-      :description="page.description"
+      :title="(page as { title?: string }).title"
+      :description="(page as { description?: string }).description"
       :links="heroLinks"
       headline="产品介绍"
       orientation="horizontal"
@@ -53,13 +53,13 @@ const pageFeatures = computed(() => {
         v-if="pageImage && typeof pageImage === 'object'"
         :light="(pageImage as { light: string }).light"
         :dark="(pageImage as { dark: string }).dark"
-        :alt="page.title"
+        :alt="(page as { title?: string }).title"
         class="rounded-lg shadow-lg shadow-default ring-2 ring-default w-full mx-auto"
       />
       <img
         v-else-if="pageImage"
         :src="pageImage as string"
-        :alt="page.title"
+        :alt="(page as { title?: string }).title"
       >
       <div
         v-else

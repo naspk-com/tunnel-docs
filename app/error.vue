@@ -12,12 +12,12 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Page not found',
-  description: 'We are sorry but this page could not be found.'
+  title: '飞牛QwenPaw - Page not found',
+  description: '很遗憾，页面不存在。'
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'))
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs' as never))
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs' as never), {
   server: false
 })
 
