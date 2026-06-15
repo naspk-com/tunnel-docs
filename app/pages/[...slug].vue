@@ -10,47 +10,15 @@ const route = useRoute()
 const { toc } = useAppConfig()
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
-const { data: page } = await useAsyncData(route.path, async () => {
-  // First try to find in docs collection
-  try {
-    const doc = await queryCollection('docs').path(route.path).first()
-    if (doc) return doc
-  } catch {
-    // ignore error
-  }
-
-  // If not found, try products collection
-  try {
-    return await queryCollection('products').path(route.path).first()
-  } catch {
-    return null
-  }
-})
+const { data: page } = await useAsyncData(route.path, () => queryCollection('docs').path(route.path).first())
 
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, async () => {
-  let docSurround = null
-  try {
-    docSurround = await queryCollectionItemSurroundings('docs', route.path, {
-      fields: ['description']
-    })
-  } catch {
-    // ignore error
-  }
-
-  if (docSurround?.some(Boolean)) return docSurround
-
-  try {
-    return await queryCollectionItemSurroundings('products', route.path, {
-      fields: ['description']
-    })
-  } catch {
-    return []
-  }
-})
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollectionItemSurroundings('docs', route.path, {
+    fields: ['description']
+  }))
 
 const title = page.value.seo?.title || page.value.title
 const description = page.value.seo?.description || page.value.description

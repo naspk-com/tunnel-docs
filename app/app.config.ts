@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ui: {
     colors: {
-      primary: 'orange',
+      primary: 'fntunnel',
       neutral: 'slate'
     },
     footer: {
@@ -12,13 +12,13 @@ export default defineAppConfig({
     }
   },
   seo: {
-    siteName: '飞牛QwenPaw - NasPK Build By 尘墨成'
+    siteName: '飞牛Cloudflare Tunnel - NasPK Build By 尘墨成'
   },
   header: {
     title: '',
     to: '/',
     logo: {
-      alt: '飞牛QwenPaw',
+      alt: '飞牛Cloudflare Tunnel',
       light: '/logo.svg',
       dark: '/logo_dark.svg'
     },
@@ -26,7 +26,7 @@ export default defineAppConfig({
     colorMode: true,
     links: [{
       'icon': 'i-simple-icons-github',
-      'to': 'https://github.com/naspk-com/QwenPaw',
+      'to': 'https://github.com/naspk-com',
       'target': '_blank',
       'aria-label': 'GitHub 项目'
     }]

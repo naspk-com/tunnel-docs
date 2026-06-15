@@ -12,7 +12,7 @@ useHead({
 })
 
 useSeoMeta({
-  title: '飞牛QwenPaw - Page not found',
+  title: '飞牛Cloudflare Tunnel - Page not found',
   description: '很遗憾，页面不存在。'
 })
 

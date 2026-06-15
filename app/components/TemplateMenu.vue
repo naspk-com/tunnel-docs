@@ -1,21 +1,21 @@
 <script setup lang="ts">
-const activeLabel = 'QwenPaw'
+const activeLabel = 'Tunnel'
 // no-op: docs 为默认激活项，由顶层按钮样式直接体现
 
 const items = computed(() => {
   const result: Array<Record<string, unknown>> = [{
     label: 'QwenPaw',
+    to: 'https://qwenpaw.naspk.com',
+    onSelect: () => window.open('https://qwenpaw.naspk.com', '_blank'),
+    color: 'neutral',
+    checked: false,
+    type: 'checkbox'
+  }, {
+    label: 'Tunnel',
     to: '/',
     onSelect: () => navigateTo('/'),
     color: 'primary',
     checked: true,
-    type: 'checkbox'
-  }, {
-    label: 'Tunnel',
-    to: 'https://tunnel.naspk.com',
-    onSelect: () => window.open('https://tunnel.naspk.com', '_blank'),
-    color: 'neutral',
-    checked: false,
     type: 'checkbox'
   }, {
     label: 'IT Tools',

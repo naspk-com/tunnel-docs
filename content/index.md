@@ -1,85 +1,76 @@
 ---
-title: 飞牛QwenPaw
-description: 部署在你自己的 NAS 上的个人 AI 助理。支持微信/QQ/钉钉/飞书等多通道对话，多智能体协作，定时任务，Skills 无限扩展。
+title: Cloudflare Tunnel
+description: 无需公网 IP，无需配置复杂路由。通过 Cloudflare 边缘网络，安全、快速地将你的 fnOS 服务暴露到互联网。
 image:
-  light: /images/hero-qwenpaw-light.png
-  dark: /images/hero-qwenpaw-dark.png
+  light: /images/hero-light.png
+  dark: /images/hero-dark.png
 links:
   - label: 快速开始
-    to: /getting-started
+    to: /quickstart
     icon: i-lucide-rocket
-  - label: 控制台功能
-    to: /setup/dashboard
-    icon: i-lucide-monitor
-  - label: QwenPaw 官网
-    to: https://qwenpaw.agentscope.io
-    target: _blank
-    icon: i-lucide-external-link
+  - label: API 接入
+    to: /advanced/api-credentials
+    icon: i-lucide-key
+  - label: SDK 下载
+    to: /advanced/sdk
+    icon: i-lucide-download
   - label: 加入 QQ 群聊
-    to: https://qm.qq.com/q/uydPbFJ4ic
+    to: https://qm.qq.com/q/AF0rPKcHde
     target: _blank
     icon: i-lucide-users
 features:
-  - title: 多通道对话
-    description: 支持微信、QQ、钉钉、飞书、Discord、Telegram、iMessage 等，一处部署，全平台接入。
-    icon: i-lucide-message-square
-  - title: 多智能体协作
-    description: 独立配置多个 Agent，各自拥有独立的记忆和技能，可互相通信协作完成复杂任务。
-    icon: i-lucide-users
-  - title: 私有部署
-    description: 部署在你自己的 NAS 上，支持本地大模型完全离线运行，数据不外泄。
-    icon: i-lucide-server
+  - title: 无需公网 IP
+    description: 即使你的宽带没有分配公网 IPv4，也能通过 Cloudflare 边缘网络轻松实现外网访问。
+    icon: i-lucide-network
+  - title: 安全加密
+    description: 所有流量通过 Cloudflare 全球网络加密传输，隐藏真实 IP，原生防御 DDoS 攻击。
+    icon: i-lucide-shield-check
+  - title: API 集成
+    description: 提供 RESTful API、MCP 服务和多语言 SDK，方便其他应用和 AI 智能体集成 Tunnel 管理能力。
+    icon: i-lucide-code
 quickLinks:
   - title: 快速开始
-    description: 了解 QwenPaw 控制台功能概览，快速上手使用。
-    to: /getting-started
+    description: 了解功能概览，三步完成首个 Tunnel 配置。
+    to: /quickstart
     icon: i-lucide-rocket
-  - title: 安装指南
-    description: 在飞牛 NAS 上安装和配置 QwenPaw。
-    to: /getting-started/installation
-    icon: i-lucide-download
-  - title: 控制台功能
-    description: 了解 QwenPaw 控制台的各项功能模块。
-    to: /setup/dashboard
-    icon: i-lucide-monitor
-  - title: 帮助与排障
-    description: 常见问题解答和故障排除指南。
+  - title: 配置指南
+    description: 配置 Cloudflare 账号凭据与系统连接参数。
+    to: /configuration/cloudflare-credentials
+    icon: i-lucide-key
+  - title: Tunnel 管理
+    description: 创建、连接、配置域名转发规则。
+    to: /tunnel-management/manage-tunnels
+    icon: i-lucide-list
+  - title: API 凭证与 SDK
+    description: 获取 API 凭证、下载 SDK，将 Tunnel 集成到你的应用中。
+    to: /advanced/api-credentials
+    icon: i-lucide-code
+  - title: 帮助排障
+    description: 常见问题解答与故障排除指南。
     to: /help/troubleshooting
     icon: i-lucide-life-buoy
 ---
 
-## 什么是 QwenPaw？
+## 什么是 Cloudflare Tunnel？
 
-QwenPaw 是一款部署在你自己的 NAS 上的个人 AI 助理，由 [AgentScope](https://github.com/agentscope-ai) 团队基于 AgentScope Runtime 与 ReMe 构建。它不是普通的聊天机器人——你可以通过微信、QQ、钉钉、飞书、Discord、Telegram 等多通道与它交互，配置定时任务让它自动执行工作，通过 Skills 无限扩展它的能力。所有数据完全存储在本地，无需依赖任何第三方云服务。
+Cloudflare Tunnel 通过 Cloudflare 全球边缘网络，在你的 fnOS 设备和外部互联网之间建立一条安全隧道。你无需公网 IP、无需配置路由器端口转发，即可让你的 fnOS 服务（如 [QwenPaw](/products/qwenpaw)、[It-Tools](/products/it-tools) 等）安全地暴露到互联网。
 
-飞牛通过应用商店为你提供了一键安装的 QwenPaw 控制台，你可以在控制台中管理智能体、配置通道、安装技能、设置定时任务等。
-
-> **提示**：本文档主要介绍 QwenPaw 控制台的功能和飞牛安装使用方式。关于 QwenPaw 本体的详细使用文档（如智能体创建、Skills 开发等），请访问 [QwenPaw 官网](https://qwenpaw.agentscope.io)。
+![功能概览](/images/hero-light.png)
 
 ## 核心功能
 
-- **多通道对话**：支持微信、QQ、钉钉、飞书、Discord、Telegram、iMessage、腾讯元宝、企业微信等十余种通道，一处部署，全平台接入
-- **多智能体协作**：独立配置多个 Agent，各自拥有独立的记忆和技能，可互相通信协作完成复杂任务
-- **定时任务**：设置 Cron 定时任务，让 QwenPaw 在指定时间自动执行工作
-- **Skills 扩展**：能力由 Skills 决定，支持无限扩展，社区持续贡献新技能
-- **本地优先**：支持 Ollama 等本地大模型，完全离线也能工作，数据不外泄
-- **多层安全防护**：内置沙箱执行、会话隔离、权限控制等安全机制
+- **Tunnel 管理**：创建、启动、停止 Cloudflare Tunnel，支持多个 Tunnel 之间快速切换
+- **域名转发**：为第三方应用注册独立域名，自动配置 DNS 和 ingress 规则
+- **API 凭证**：创建 API 凭证，支持外部应用通过独立 HTTP API 调用 Tunnel 管理接口
+- **MCP 服务**：内置 MCP（Model Context Protocol）服务，可将全部 Tunnel 管理能力暴露给 AI 智能体（如 QwenPaw、OpenClaw 等）
+- **多语言 SDK**：提供 Python、JavaScript/TypeScript、Go、Shell 四种 SDK，开箱即用
+- **日志查看**：内置 Tunnel 运行日志，方便排障
 
 ## 适用场景
 
 | 场景 | 说明 |
 |------|------|
-| 日常助理 | 通过微信/QQ 等随时和你的 AI 助理对话 |
-| 自动化任务 | 设置定时任务，自动处理日报、数据汇总等重复性工作 |
-| 知识管理 | 上传文档让 AI 学习，构建个人知识库 |
-| 团队协作 | 多个智能体分工协作，完成复杂的多步骤任务 |
-| 本地 AI 服务 | 配合 Ollama 使用本地大模型，完全离线运行 |
-
-## 文档导航
-
-| 章节 | 内容 |
-|------|------|
-| [快速开始](/getting-started) | QwenPaw 控制台功能概览与飞牛安装指南 |
-| [控制台功能](/setup/dashboard) | 控制台首页、运行日志、外网访问、关于等模块说明 |
-| [管理与配置](/manage) | 飞牛环境下的配置说明、更新与卸载 |
-| [帮助](/help/troubleshooting) | 常见问题排查与排障指南 |
+| 部署 QwenPaw 等 AI 服务 | 将本地运行的 AI 模型通过独立域名对外提供服务 |
+| 搭建个人网站或工具 | 让 [It-Tools](/products/it-tools)、[fnDesign](/products/fndesign) 等服务可通过公网访问 |
+| 远程访问 NAS | 在外网安全地访问 fnOS 上的文件服务 |
+| 应用间集成 | 通过 API/SDK 让其他应用自动管理 Tunnel 域名 |
