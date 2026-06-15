@@ -50,27 +50,3 @@ quickLinks:
     to: /help/troubleshooting
     icon: i-lucide-life-buoy
 ---
-
-## 什么是 Cloudflare Tunnel？
-
-Cloudflare Tunnel 通过 Cloudflare 全球边缘网络，在你的 fnOS 设备和外部互联网之间建立一条安全隧道。你无需公网 IP、无需配置路由器端口转发，即可让你的 fnOS 服务（如 [QwenPaw](/products/qwenpaw)、[It-Tools](/products/it-tools) 等）安全地暴露到互联网。
-
-![功能概览](/images/hero-light.png)
-
-## 核心功能
-
-- **Tunnel 管理**：创建、启动、停止 Cloudflare Tunnel，支持多个 Tunnel 之间快速切换
-- **域名转发**：为第三方应用注册独立域名，自动配置 DNS 和 ingress 规则
-- **API 凭证**：创建 API 凭证，支持外部应用通过独立 HTTP API 调用 Tunnel 管理接口
-- **MCP 服务**：内置 MCP（Model Context Protocol）服务，可将全部 Tunnel 管理能力暴露给 AI 智能体（如 QwenPaw、OpenClaw 等）
-- **多语言 SDK**：提供 Python、JavaScript/TypeScript、Go、Shell 四种 SDK，开箱即用
-- **日志查看**：内置 Tunnel 运行日志，方便排障
-
-## 适用场景
-
-| 场景 | 说明 |
-|------|------|
-| 部署 QwenPaw 等 AI 服务 | 将本地运行的 AI 模型通过独立域名对外提供服务 |
-| 搭建个人网站或工具 | 让 [It-Tools](/products/it-tools)、[fnDesign](/products/fndesign) 等服务可通过公网访问 |
-| 远程访问 NAS | 在外网安全地访问 fnOS 上的文件服务 |
-| 应用间集成 | 通过 API/SDK 让其他应用自动管理 Tunnel 域名 |
