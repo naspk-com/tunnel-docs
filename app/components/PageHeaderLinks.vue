@@ -4,13 +4,13 @@ import { useClipboard } from '@vueuse/core'
 const route = useRoute()
 const toast = useToast()
 const { copy, copied } = useClipboard()
-const site = { url: 'https://fnosp.dustinky.com' }
+const site = { url: 'https://tunnel.naspk.com' }
 
-const mdPath = computed(() => `${site.url}/raw${route.path}.md`)
+const mdPath = computed(() => `${site.url}/${route.path}`)
 
 const items = [
   {
-    label: '复制 Markdown 链接',
+    label: '复制链接',
     icon: 'i-lucide-link',
     onSelect() {
       copy(mdPath.value)
@@ -19,12 +19,6 @@ const items = [
         icon: 'i-lucide-check-circle'
       })
     }
-  },
-  {
-    label: '以 Markdown 查看',
-    icon: 'i-simple-icons:markdown',
-    target: '_blank',
-    to: `/raw${route.path}.md`
   },
   {
     label: '在 ChatGPT 中打开',
@@ -41,7 +35,7 @@ const items = [
 ]
 
 async function copyPage() {
-  copy(await $fetch<string>(`/raw${route.path}.md`))
+  copy(await $fetch<string>(route.path))
 }
 </script>
 
