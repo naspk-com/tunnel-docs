@@ -29,6 +29,10 @@ features:
     description: 提供 RESTful API、MCP 服务和多语言 SDK，方便其他应用和 AI 智能体集成 Tunnel 管理能力。
     icon: i-lucide-code
 quickLinks:
+  - title: 前置准备
+    description: 域名注册、Cloudflare 账号注册、域名 DNS 托管配置。
+    to: /prerequisites/domain-registration
+    icon: i-lucide-clipboard-list
   - title: 快速开始
     description: 了解功能概览，三步完成首个 Tunnel 配置。
     to: /quickstart
