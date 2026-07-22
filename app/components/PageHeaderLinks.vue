@@ -6,7 +6,7 @@ const toast = useToast()
 const { copy, copied } = useClipboard()
 const site = { url: 'https://tunnel.naspk.com' }
 
-const mdPath = computed(() => `${site.url}/${route.path}`)
+const mdPath = computed(() => `${site.url}${route.path}`)
 
 const items = [
   {
